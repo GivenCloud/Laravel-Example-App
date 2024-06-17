@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::paginate(2);
-        echo view('dashboard.post.index', compact('posts'));
+        return view('dashboard.post.index', compact('posts'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PostController extends Controller
         //$categories = Category::get();
         $categories = Category::pluck('id', 'title');
         $post = new Post();
-        echo view('dashboard.post.create', compact('categories', 'post'));
+        return view('dashboard.post.create', compact('categories', 'post'));
     }
 
     /**
@@ -47,7 +47,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        echo view('dashboard.post.show', compact('post'));
+        return view('dashboard.post.show', compact('post'));
     }
 
     /**
